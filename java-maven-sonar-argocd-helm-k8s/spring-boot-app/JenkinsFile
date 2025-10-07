@@ -17,8 +17,8 @@ pipeline {
          docker {
            image 'docker:24.0.6-cli'
           args '-v /var/run/docker.sock:/var/run/docker.sock'
+      }  
     }
-
       steps {
         sh 'ls -ltr'
         // build the project and create a JAR file
