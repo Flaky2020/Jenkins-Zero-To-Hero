@@ -33,7 +33,7 @@ pipeline {
 
     stage('Build and Push Docker Image') {
       environment {
-        DOCKER_IMAGE = "flaky2020/ultimate-cicd:${BUILD_NUMBER}"
+        DOCKER_IMAGE = "flaky2025/ultimate-cicd:${BUILD_NUMBER}"
         REGISTRY_CREDENTIALS = credentials('docker-cred')
       }
       steps {
