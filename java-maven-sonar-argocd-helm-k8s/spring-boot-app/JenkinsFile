@@ -63,7 +63,7 @@ pipeline {
 
         withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
           sh ''' 
-            sudo -i
+            whoami
             cd /var/lib/jenkins/workspace/ultimate-demo
             git config --global --add safe.directory /var/lib/jenkins/workspace/ultimate-demo
             chmod -R 777 $WORKSPACE
