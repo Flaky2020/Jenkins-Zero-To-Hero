@@ -55,7 +55,7 @@ pipeline {
       }
       steps {
         checkout scm 
-        sh 'pwd && ls -la && git status && users'
+        sh 'pwd && ls -la && git status && id jenkens'
         withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
           sh ''' 
             rm -rf ${GIT_REPO_NAME}
