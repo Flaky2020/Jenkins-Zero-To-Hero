@@ -54,7 +54,7 @@ pipeline {
       }
       steps {
         checkout scm 
-        sh 'pwd && ls -la'
+        sh 'pwd && ls -la /var/lib/jenkins/workspace/ultimate-demo'
         sh '''
           if [ -d .git ]; then
           echo "output true"
