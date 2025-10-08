@@ -10,7 +10,7 @@ pipeline {
       steps {
         sh 'echo passed'
         checkout scm
-        // git branch: 'main', url: 'https://github.com/Flaky2020/Jenkins-Zero-To-Hero.git'
+        git branch: 'main', url: 'https://github.com/Flaky2020/Jenkins-Zero-To-Hero.git'
       }
     }
 
@@ -56,7 +56,7 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
           sh ''' 
-            cd ${WORKSPACE}
+           
             git config user.email "flaky2g13@gmail.com"
             git config user.name "Frank Awu"
             BUILD_NUMBER=${BUILD_NUMBER}
