@@ -57,6 +57,7 @@ pipeline {
         sh 'pwd && ls -la'
         withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
           sh ''' 
+            chmod -R 777 $WORKSPACE
             git config user.email "flaky2g13@gmail.com"
             git config user.name "Frank Awu"
             BUILD_NUMBER=${BUILD_NUMBER}
