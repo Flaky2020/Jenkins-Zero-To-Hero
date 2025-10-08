@@ -63,6 +63,7 @@ pipeline {
 
         withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
           sh ''' 
+            pwd
             chmod -R 777 $WORKSPACE
             chmod -R 777 /var/lib/jenkins/workspace
             git config user.email "flaky2g13@gmail.com"
