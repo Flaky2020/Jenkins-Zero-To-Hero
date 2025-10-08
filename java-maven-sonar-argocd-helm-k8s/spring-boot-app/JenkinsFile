@@ -9,7 +9,6 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        checkout scm
         git branch: 'main', url: 'https://github.com/Flaky2020/Jenkins-Zero-To-Hero.git'
       }
     }
@@ -55,12 +54,9 @@ pipeline {
       }
       steps {
         checkout scm 
-        sh 'pwd && ls -la && git status && id jenkens'
+        sh 'pwd && ls -la'
         withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
           sh ''' 
-            rm -rf ${GIT_REPO_NAME}
-            git clone https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git
-            cd ${GIT_REPO_NAME}
             git config user.email "flaky2g13@gmail.com"
             git config user.name "Frank Awu"
             BUILD_NUMBER=${BUILD_NUMBER}
