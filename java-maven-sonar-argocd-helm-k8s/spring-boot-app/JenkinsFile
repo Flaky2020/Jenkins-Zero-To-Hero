@@ -55,6 +55,12 @@ pipeline {
       steps {
         checkout scm 
         sh 'pwd && ls -la'
+        sh '''
+          if [ -d .git ]; then
+          echo "output true"
+          fi
+        '''
+
         withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
           sh ''' 
             chmod -R 777 $WORKSPACE
