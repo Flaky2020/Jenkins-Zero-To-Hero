@@ -55,10 +55,10 @@ pipeline {
       }
       steps {
         checkout scm 
-        sh 'pwd && ls -la'
+        sh 'pwd && ls -la && git status'
         withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
           sh ''' 
-           
+            cd ${WORKSPACE}
             git config user.email "flaky2g13@gmail.com"
             git config user.name "Frank Awu"
             BUILD_NUMBER=${BUILD_NUMBER}
