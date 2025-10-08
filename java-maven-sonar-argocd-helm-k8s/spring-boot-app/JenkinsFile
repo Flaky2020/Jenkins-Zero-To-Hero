@@ -54,6 +54,8 @@ pipeline {
         GIT_USER_NAME = "flaky2020"
       }
       steps {
+        checkout scm 
+        sh 'pwd && ls -la'
         withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
           sh ''' 
            
