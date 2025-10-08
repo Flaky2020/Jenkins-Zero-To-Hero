@@ -58,6 +58,7 @@ pipeline {
         sh 'pwd && ls -la && git status && users'
         withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
           sh ''' 
+            chown -R \$(id -u):\$(id -g) /var/lib/jenkins/workspace/ultimate-demo
             git config --global --add safe.directory /var/lib/jenkins/workspace/ultimate-demo
             cd /var/lib/jenkins/workspace/ultimate-demo
             git config user.email "flaky2g13@gmail.com"
